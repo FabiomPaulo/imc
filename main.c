@@ -1,18 +1,24 @@
+// calculo imc
 
-#include<stdio.h>    //Inclusão da Biblioteca para entrada e saída de dados
-main()                    //Inicio da função principal main
-{
-    int peso=0;            //se imc<18 abaixo do peso. Entre 18 e 25 sarado. Entre 26 e 30 acima. > que 30 obeso.
-    float imc=0,altura=0;
-    printf("**ESTE PROGRAMA ANALISA SEU IMC (Indice de Massa Corporea)**\n\nDigite sua peso: ");
-    scanf("%d",&peso);
-    printf("Qual sua altura? ");
-    scanf("%f",&altura);
-    imc=peso/(altura*altura);
-    if (imc<18) printf("Voce esta abaixo do peso.\n\n");
-    else if (imc<=25) printf("Parabens. Voce esta sarado.\n\n");
-    else if (imc<=30) printf("Atencao. Voce esta acima do peso.\n\n");
-    else  printf("Voce e OBESO. Trate-se imediatamente.\n\n");
-   
-    getch();    //Dá uma pausa no sistema. Pode ser trocado por system("pause");
+int main() {
+    float massa, altura, imc;
+
+    printf("Digite seu peso (em kg) e sua altura (em metros): ");
+    scanf("%f%f", &massa, &altura);
+
+    imc = massa / (altura * altura);
+
+    if(imc < 18.5)
+        printf("IMC: %f\tAbaixo do peso\n", imc);
+    else if(imc >= 18.5 && imc < 25)
+        printf("IMC: %f\tPeso normal\n", imc);
+    else if(imc >= 25 && imc < 30)
+        printf("IMC: %f\tSobrepeso\n", imc);
+    else if(imc >= 30 && imc < 35)
+        printf("IMC: %f\tObesidade grau 1\n", imc);
+    else if(imc >= 35 && imc < 40)
+        printf("IMC: %f\tObesidade grau 2\n", imc);
+    else
+        printf("IMC: %f\tObesidade grau 3\n", imc);
 }
+
